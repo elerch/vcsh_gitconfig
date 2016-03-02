@@ -1,0 +1,9 @@
+[user]
+	name = Emil Lerch
+	email = emil@lerch.org
+[alias]
+	co = checkout
+	st = status
+	tgz = archive --format tar.gz
+[push]
+	default = simple
