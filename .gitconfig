@@ -1,6 +1,7 @@
 [user]
 	name = Emil Lerch
 	email = emil@lerch.org
+	signingkey = 3125C87C
 [alias]
 	co = checkout
 	st = status
@@ -8,3 +9,5 @@
 	start = !git init && git commit --allow-empty -m \"initial commit\"
 [push]
 	default = simple
+[gpg]
+	program = gpg2
