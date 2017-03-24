@@ -9,5 +9,14 @@
 	start = !git init && git commit --allow-empty -m \"initial commit\"
 [push]
 	default = simple
+#[merge]
+#        tool = kdiff3
+#[diff]
+#        tool = kdiff3
+
+[core]
+        pager = less -F -X
+[commit]
+        gpgsign = true
 [gpg]
 	program = gpg2
