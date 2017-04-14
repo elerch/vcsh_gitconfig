@@ -4,7 +4,7 @@
 	signingkey = 3125C87C
 [alias]
 	co = checkout
-	st = status
+	s = status
 	tgz = archive --format tar.gz
 	start = !git init && git commit --allow-empty -m \"initial commit\"
 [push]
