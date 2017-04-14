@@ -5,7 +5,7 @@
 [alias]
 	co = checkout
 	s = status
-	tgz = archive --format tar.gz
+  tgz = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
 	start = !git init && git commit --allow-empty -m \"initial commit\"
 [push]
 	default = simple
