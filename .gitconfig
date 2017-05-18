@@ -4,8 +4,8 @@
 [alias]
   co = checkout
   s = status
-  l = !git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  logall = !git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $(git reflog | awk '{print $1}')
+  l = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  logall = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $(git reflog | awk '{print $1}')
   tgz = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
   start = !git init && git commit --allow-empty -m \"initial commit\"
   aliases = config --get-regexp '^alias\\.'
