@@ -1,7 +1,6 @@
 [user]
   name = Emil Lerch
   email = emil@lerch.org
-  signingkey = 3125C87C
 [alias]
   co = checkout
   s = status
@@ -19,9 +18,9 @@
 
 [core]
         pager = less -F -X
-[commit]
-        gpgsign = true
 [gpg]
   program = gpg2
 [pull]
   ff = only
+[include] # This requires >=1.7.10
+  path = .gitsigning
