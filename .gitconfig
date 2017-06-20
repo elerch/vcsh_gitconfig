@@ -9,6 +9,12 @@
   tgz = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
   start = !git init && git commit --allow-empty -m \"initial commit\"
   aliases = config --get-regexp '^alias\\.'
+  sshify = "!f() { git remote add git-origin \
+    $(git remote -v | head -n1 | \
+      awk '{print $2}' | \
+      sed 's/https:\\/\\//git@/' | \
+      sed 's/\\//:/'); \
+    }; f"
 [push]
   default = simple
 #[merge]
