@@ -17,8 +17,8 @@
     }; f"
 [push]
   default = simple
-#[merge]
-#        tool = kdiff3
+[merge]
+  tool = vimdiff #kdiff3
 #[diff]
 #        tool = kdiff3
 
