@@ -8,6 +8,7 @@
   logall = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $(git reflog | awk '{print $1}')
   tgz = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
   start = !git init && git commit --allow-empty -m \"initial commit\" && touch README.md && curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE
+  license-mit = !curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE && git add LICENSE
   aliases = config --get-regexp '^alias\\.'
   sshify = "!f() { git remote add git-origin \
     $(git remote -v | head -n1 | \
