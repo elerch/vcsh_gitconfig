@@ -29,3 +29,8 @@
   ff = only
 [include] # This requires >=1.7.10
   path = .gitsigning
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
