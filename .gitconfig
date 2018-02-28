@@ -10,6 +10,7 @@
   start = !git init && git commit --allow-empty -m \"initial commit\" && touch README.md && curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE
   license-mit = !curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE && git add LICENSE
   aliases = config --get-regexp '^alias\\.'
+  pushall = !"for remote in $(git remote); do git push $remote; done"
   sshify = "!f() { git remote add git-origin \
     $(git remote -v | head -n1 | \
       awk '{print $2}' | \
