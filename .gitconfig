@@ -17,6 +17,7 @@
       sed 's/https:\\/\\//git@/' | \
       sed 's/\\//:/'); \
     }; f"
+  pushpull = "!f() { git push $1 && git pull $2; }; f"
 [push]
   default = simple
 [merge]
