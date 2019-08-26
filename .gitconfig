@@ -11,6 +11,13 @@
   license-mit = !curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE && git add LICENSE
   aliases = config --get-regexp '^alias\\.'
   pushall = !"for remote in $(git remote); do git push $remote; done"
+  httpify = "!f() { git remote add temp-origin \
+    $(git remote -v | head -n1 | \
+      awk '{print $2}' | \
+      sed 's/:/\\//' | \
+      sed 's/git@/https:\\/\\//' \
+    ); git remote rename origin git-origin; git remote rename temp-origin origin; \
+    }; f"
   sshify = "!f() { git remote add git-origin \
     $(git remote -v | head -n1 | \
       awk '{print $2}' | \
