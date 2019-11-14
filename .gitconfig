@@ -2,29 +2,29 @@
   name = Emil Lerch
   email = emil@lerch.org
 [alias]
-  co = checkout
-  s = status
-  l = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  logall = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $(git reflog | awk '{print $1}')
-  tgz = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
-  start = !git init && git commit --allow-empty -m \"initial commit\" && touch README.md && curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE
+  co          = checkout
+  s           = status
+  l           = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  logall      = !git log --color --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $(git reflog | awk '{print $1}')
+  tgz         = !"f() { dir=${PWD##*/}.tgz; git archive --format tar.gz -o ${1:-$dir} ${2:-HEAD}; }; f"
+  start       = !git init && git commit --allow-empty -m \"initial commit\" && touch README.md && curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE
   license-mit = !curl -sL https://raw.githubusercontent.com/elerch/docker-ttrss-update-daemon/master/LICENSE -o LICENSE && perl -pi -e  \"s/2017/$(date +%Y)/\" LICENSE && git add LICENSE
-  aliases = config --get-regexp '^alias\\.'
-  pushall = !"for remote in $(git remote); do git push $remote; done"
-  httpify = "!f() { git remote add temp-origin \
+  aliases     = config --get-regexp '^alias\\.'
+  pushall     = !"for remote in $(git remote); do git push $remote; done"
+  httpify     = "!f() { git remote add temp-origin \
     $(git remote -v | head -n1 | \
       awk '{print $2}' | \
       sed 's/:/\\//' | \
       sed 's/git@/https:\\/\\//' \
     ); git remote rename origin git-origin; git remote rename temp-origin origin; \
     }; f"
-  sshify = "!f() { git remote add git-origin \
+  sshify      = "!f() { git remote add git-origin \
     $(git remote -v | head -n1 | \
       awk '{print $2}' | \
       sed 's/https:\\/\\//git@/' | \
       sed 's/\\//:/'); \
     }; f"
-  pushpull = "!f() { git push $1 && git pull $2; }; f"
+  pushpull    = "!f() { git push $1 && git pull $2; }; f"
 [push]
   default = simple
 [merge]
