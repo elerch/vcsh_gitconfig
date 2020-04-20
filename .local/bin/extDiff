@@ -1,0 +1,15 @@
+#!/bin/sh
+command_exists () {
+  # https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then
+  # https://unix.stackexchange.com/questions/86012/what-is-the-purpose-of-the-hash-command
+  command -v "$1" > /dev/null 2>&1
+  return $?
+}
+difftool="${DIFFTOOL:-$EDITOR}"
+if [ -z "$difftool" ]; then
+  command_exists nvim && difftool="nvim"
+  command_exists vimdiff && difftool="vimdiff"
+fi
+[ "$difftool" = "vim" ] && difftool="vimdiff"
+[ "$difftool" = "nvim" ] && difftool="nvim -d"
+$difftool "$1" "$2"

@@ -28,11 +28,10 @@
   pushpull    = "!f() { git push $1 && git pull $2; }; f"
 [push]
   default = simple
-[merge]
-  tool = vimdiff #kdiff3
-#[diff]
-#        tool = kdiff3
-
+[diff]
+  tool = extDiff #kdiff3
+[difftool "extDiff"]
+  cmd = "extDiff \"$LOCAL\" \"$REMOTE\""
 [core]
         pager = less -F -X
 [pull]
