@@ -33,7 +33,7 @@
 [difftool "extDiff"]
   cmd = "extDiff \"$LOCAL\" \"$REMOTE\""
 [core]
-        pager = less -F -X
+  pager = gitpager
 [pull]
   ff = only
 [include] # This requires >=1.7.10
