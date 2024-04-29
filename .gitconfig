@@ -30,6 +30,7 @@
   default = simple
 [diff]
   tool = extDiff #kdiff3
+  algorithm = histogram
 [difftool "extDiff"]
   cmd = "extDiff \"$LOCAL\" \"$REMOTE\""
 [core]
@@ -44,4 +45,9 @@
 	process = git-lfs filter-process
 	required = true
 [init]
-	defaultBranch = master
+  defaultBranch = master
+[help]
+  autocorrect = prompt
+[merge]
+  conflictstyle = zdiff3
+  tool = nvimdiff
