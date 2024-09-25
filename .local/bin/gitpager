@@ -2,6 +2,6 @@
 
 pager="less"
 command -v delta >/dev/null 2>&1 && \
-  pager="delta" && set -- --syntax-theme='Monokai Extended' "$@"
+  pager="delta" && set -- --syntax-theme='Monokai Extended' --dark "$@"
 [ "$pager" = "less" ] && set -- -F -X "$@"
 $pager "$@"
