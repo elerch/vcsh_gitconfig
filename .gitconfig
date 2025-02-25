@@ -26,11 +26,22 @@
       sed 's/\\//:/'); \
     }; f"
   pushpull    = "!f() { git push $1 && git pull $2; }; f"
+[column]
+  ui = auto
+[commit]
+  verbose = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
 [push]
   default = simple
 [diff]
   tool = extDiff #kdiff3
   algorithm = histogram
+  colorMoved = default
+  renames = true
+  mnemonicPrefix = true
 [difftool "extDiff"]
   cmd = "extDiff \"$LOCAL\" \"$REMOTE\""
 [core]
@@ -51,3 +62,8 @@
 [merge]
   conflictstyle = zdiff3
   tool = nvimdiff
+[delta]
+  navigate = true
+  dark = true
+  line-numbers = true
+  syntax-theme = Monokai Extended
