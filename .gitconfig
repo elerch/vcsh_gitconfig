@@ -38,12 +38,19 @@
   default = simple
 [diff]
   tool = extDiff #kdiff3
+  guitool = meld
   algorithm = histogram
   colorMoved = default
   renames = true
   mnemonicPrefix = true
 [difftool "extDiff"]
   cmd = "extDiff \"$LOCAL\" \"$REMOTE\""
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[mergetool "meld"]
+    # Choose one of these 2 lines
+    #cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [core]
   pager = gitpager
 [pull]
@@ -62,6 +69,7 @@
 [merge]
   conflictstyle = zdiff3
   tool = nvimdiff
+  guitool = meld
 [delta]
   navigate = true
   dark = true
