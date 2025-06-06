@@ -69,6 +69,8 @@
     fi; \
     echo \"Fetching PR #$PR_NUMBER from $REMOTE into branch $BRANCH_NAME...\"; \
     git fetch $REMOTE pull/$PR_NUMBER/head:$BRANCH_NAME && \
+    git config branch.$BRANCH_NAME.remote $REMOTE && \
+    git config branch.$BRANCH_NAME.merge pull/$PR_NUMBER/head && \
     echo \"PR #$PR_NUMBER fetched to branch $BRANCH_NAME\"; \
   }; f"
 [column]
